@@ -1,9 +1,11 @@
 // poke_url = "https://pokeapi.co/api/v2/stat/"
-var pokemon_name = d3.select("#poke1").property("value");
-console.log(poke_name)
-function buildPlot(name) {
+
+
+function buildPlot() {
+  var name = d3.select("#poke1").property("value");
     var url=`https://pokeapi.co/api/v2/pokemon/${name}`;
-    d3.json(url).then(function(data) {
+    name = "";
+    d3.json(url, function (error, data) {
       // Grab values from the response json object to build the plots
       var name = data.forms[0].name;
       var attack = data.stats[1].base_stat;
@@ -13,9 +15,10 @@ function buildPlot(name) {
       var speed = data.stats[5].base_stat;
 
       console.log(`Name: ${name}, attack: ${attack}, defense:${defense}, special_attack:${special_attack}`);
+     
     })
   };
-buildPlot(poke_name);
+document.getElementById("poke1").addEventListener("change", buildPlot);
 // ​
 // //iterate through json result from API to capture the KPIs listed below per pokemon selected 
 // // data1.forEach((poke) => { }

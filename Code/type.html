@@ -37,7 +37,7 @@
   </nav>
 
   <!-- app search page-->
-  <div data-role="page" id="pokeSearch-page">
+  <!-- <div data-role="page" id="pokeSearch-page">
     <div data-role="header" data-theme="b">
         <h1>Pokeapi Demos</h1>
     </div>
@@ -57,8 +57,62 @@
     </ul>
     </div>
     </div>
-  </div>
+  </div> -->
 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Pokemon Types Comparison</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <div class="well">
+          <h5>Pokemon:</h5>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div> -->
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">Type Info</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body">
+                    <!-- app search page-->
+            <div data-role="page" id="pokeSearch-page">
+                <div data-role="header" data-theme="b" style="text-align:center">
+                    <h1>Pokemon Type Effectiveness Search</h1>
+                </div>
+                <div data-role="main" class="ui-content" style="text-align:center">
+                <form id="pokeForm" action="#pokeDetails-page" method="post">
+                    <div>
+                    <label for="pokeInput" style="text-align:center">Pokemon name or number:
+                    <input type="text" style="text-align:center" name="pokeInput" id="pokeInput" placeholder="Name/Number" value="">
+                    </div>
+                    <br>
+                    <div>
+                    <a class="ui-btn" onclick="pokeSubmit();">Search</div>
+                </form>
+                <div>
+                <ul data-role="listview" data-inset="true" id="pokeDetails">
+                </ul>
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div id="bar"></div>
+      </div>
+      <div class="col-md-5">
+        <div id="gauge"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble"></div>
+      </div>
+    </div>
+  </div>
   
   <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

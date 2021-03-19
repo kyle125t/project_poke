@@ -1,9 +1,8 @@
 //Create a function to build the bubble
 
-function bubble_chart(gen){
+function charts(gen){
     //Get the data from the csv
-    d3.csv("poke_data.csv").then(function(data){
-    
+    d3.csv("clean_data.csv").then(function(data){
         //Create arrays for the different types
         var normal = [];
         var water = [];
@@ -200,7 +199,7 @@ function bubble_chart(gen){
     
         };
 
-        //Create the datasets for the bubble chart
+        //Create the datasets for the charts
         var x_values = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800];
         var y_values = [
             normal.length,
@@ -232,8 +231,23 @@ function bubble_chart(gen){
             pokemon += y_values[i]
         }
         console.log(pokemon)
+
+        //Create and plot the bar chart
+        var pie_values =[{
+            values: y_values,
+            labels: labels,
+            type: "pie",
+        }];
+
+        var pie_layout = {
+            title : "Number of Pokemon Per Type"
+        };
+
+        // Plot the bar chart
+        Plotly.newPlot("pie", pie_values, pie_layout);
+
         
-        // Create the chart data
+        // Create the bubble chart data
         var bubble_values = [
             {
                 x: labels,
@@ -262,6 +276,28 @@ function bubble_chart(gen){
     });
 };
 
+//Random Pokemon sprite per generation
+function rand_poke(type){
+    
+    //Write the url based on the type
+    l_type = type.toLowerCase();
+    var url = `https://pokeapi.co/api/v2/type/${l_type}`;
+
+    //Query the api
+    d3.json(url).then(function(data){
+        
+        //Store the array of pokemon
+        type_pokemon = data.pokemon;
+
+        //Create a random number based on the length of the type
+        index = Math.round(Math.random()*type_pokemon.length);
+        
+        //Store the random pokemon to be queried
+        winner = type_pokemon[index];
+        console.log(winner);
+    });
+}
+
 //Create an init function 
 function init(){
     //Create the array of selections
@@ -278,16 +314,30 @@ function init(){
             .property("value", choice);
     });
 
+    //Create the array of the selections
+    var types = ["Normal", "Water", "Electric", "Fighting", "Ground", "Psychic", "Rock",
+    "Dark", "Steel", "Fire", "Grass", "Ice", "Poison", "Fly", "Bug", "Ghost", "Dragon", "Fairy"];
+
+    var type_sel = d3.select("#selTypeset");
+    types.forEach((choice)=>{
+        type_sel
+            .append("option")
+            .text(choice)
+            .property("value", choice);
+    });
+
     //Build the first plots for all generation
-    bubble_chart(choices[0]);
+    charts(choices[0]);
 
 }
 
 //Creat an option changed function
 function optionChanged(newChoice){
     //Create the new charts
-    bubble_chart(newChoice);
+    charts(newChoice);
 }
 
 //Initalize the dashboard
 init();
+
+rand_poke("normal");

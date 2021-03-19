@@ -51,14 +51,9 @@
           anychart.onDocumentReady(function () {
       // drawing our chart goes here
 
-      var data1 = [
-          {x: "HP", value: 39},
-          {x: "Attack", value: 52},
-          {x: "Defense", value: 43},
-          {x: "Special Attack", value: 60},
-          {x: "Special Defense", value: 50},
-          {x: "Speed", value: 65},
-      ];
+    // <!-- Dropdown to select one of the pokemon -->
+    <select onchange="buildPlot()" name="poke1" id="poke1">
+    </select>
 
       var data2 = [
           {x: "HP", value: 45},

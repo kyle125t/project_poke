@@ -1,3 +1,16 @@
+function populateDrowdown(){
+  d3.csv("poke_data.csv", function(error,data){
+    if(error) throw error;
+    for (var i=1; i<data.length; i++){
+      d3.select("#poke1").selectAll("option")
+      .data(data)
+      .enter().append("option")
+      .attr("value", function (d) { return d.Name; })
+      .text(function (d) { return d.Name; });
+    }
+  })
+}
+
 function buildPlot() {
   var name = d3.select("#poke1").property("value");
   d3.csv("poke_data.csv", function(error,data){
@@ -12,6 +25,7 @@ function buildPlot() {
     }
   })
 }
+populateDrowdown();
 buildPlot();
 document.getElementById("poke1").addEventListener("change", buildPlot);
 

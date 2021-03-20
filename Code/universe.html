@@ -38,38 +38,74 @@
   </div>
 </nav>
 
+<div class="p-3 mb-2 bg-secondary text-dark">
+
   <div class="container">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Pokemon Universe Breakdown</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
+      <div class="col-md-12 jumbotron text-center bg-secondary">
+        <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" height="180" alt="" class="center"></center>
+        <br>
+          <h1><a class="text-light">Universe Breakdown</a></h1>
+        <br>
+        <p><a class="text-light">Use the interactive charts below to explore our Pokemon dataset! 
+          <br>As you toggle through each generation, you can see
+          how the Pokemon Universe has evolved through time.
+        </a></p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Choose a generation</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div id="pie"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="pokemon">
-          <h5>Type Totals By Generation</h5>
-          <select id="selTypeset" onchange="typeChanged(this.value)"></select>
-          <div id="bar"></div>
-        </div>
-      </div>
-    </div>
+
     <div class="row">
       <div class="col-md-12">
-        <div id="bubble"></div>
+        <div class="well">
+        <center> <h5>Choose a Generation</h5> 
+          <select id="selDataset" onchange="optionChanged(this.value)"></select> </center>
+          <br>
+        </div>
       </div>
+      <div class="col-md-12">
+       <center> <div id="pie"></div> </center>
+      </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="pokemon">
+          <br>
+         <center><h5>Type Totals By Generation</h5>
+          <select id="selTypeset" onchange="typeChanged(this.value)"></select> </center>
+          <br>
+        </div>
+      </div>
+          <div class="col-md-12">
+          <center><div id="bar"></div> </center>
     </div>
-  </div>
-   
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="pokemon">
+          <br>
+         <center><h5>Types of Pokemon by Generation</h5></center>
+         <br>
+         </div>
+         </div>
+      <div class="col-md-12">
+       <center><div id="bubble"></div></center>
+      </div>
+
+          
+    <div class="row">
+      <div class="col-md-12">
+        <div id="pokemon">
+          <br>
+         <center><h5><a href="#" class="text-secondary">Types of Pokemon by Generation </a></h5></center>
+         <br>
+         </div>
+         </div>
+      <div class="col-md-12">
+       <center><div id="bubble"></div></center>
+      </div>
+ 
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

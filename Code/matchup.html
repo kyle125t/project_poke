@@ -8,7 +8,7 @@
   <title>PokeMon3y$$$</title>
   <!-- Boostrap Stylesheet -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css" media="screen">
+  <!-- <link rel="stylesheet" href="style.css" media="screen"> -->
   <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
   <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-radar.min.js"></script>
   <style type="text/css">
@@ -21,8 +21,7 @@
   </style>
 </head>
 
-  <body>
-    <nav class="navbar navbar-dark bg-dark">
+<body class = "matchupbody">
     <!-- NAVBAR CODE (from Bootstrap)--> 
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
     <a class="navbar-brand" href="index.html">Dashboard Home</a>
@@ -39,89 +38,30 @@
             <a class="dropdown-item" href="type.html">Type Effectiveness</a>
             <a class="dropdown-item" href="universe.html">Universe Page</a>
           </div>
-        <!-- </li>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="index.html">Dashboard Home</a>
-          </li> -->
+          </li>
       </ul>
     </div>
   </nav>
-  <div id="container"></div>
-    <script>
-          anychart.onDocumentReady(function () {
-      // drawing our chart goes here
 
-      var data1 = [
-          {x: "HP", value: 39},
-          {x: "Attack", value: 52},
-          {x: "Defense", value: 43},
-          {x: "Special Attack", value: 60},
-          {x: "Special Defense", value: 50},
-          {x: "Speed", value: 65},
-      ];
-
-      var data2 = [
-          {x: "HP", value: 45},
-          {x: "Attack", value: 49},
-          {x: "Defense", value: 49},
-          {x: "Special Attack", value: 65},
-          {x: "Special Defense", value: 65},
-          {x: "Speed", value: 45},
-      ]; 
-
-      var data3 = [
-          {x: "HP", value: 44},
-          {x: "Attack", value: 48},
-          {x: "Defense", value: 65},
-          {x: "Special Attack", value: 50},
-          {x: "Special Defense", value: 64},
-          {x: "Speed", value: 43},
-      ];
-    // create radar chart
-    var chart = anychart.radar();
-
-    // set chart title
-    chart.title("Starter Pokemon Comparison Chart");
-
-    // set chart yScale settings
-    chart.yScale()
-    .minimum(30)
-    .maximum(80)
-    .ticks({'interval':10});
-
-    // create first series
-    chart.line(data1)
-    // create second series
-    chart.line(data2)
-    // create third series
-    chart.line(data3)
-
-    // set container id for the chart
-    chart.container('container');
-
-    chart.yGrid().palette(["gray 0.1", "gray 0.2"]);
-    // create first series
-    chart.area(data1).name('Charmander').markers(true).fill("#E55934", 0.3).stroke("#E55934")
-    // create second series
-    chart.area(data2).name('Bulbasaur').markers(true).fill("#9BC53D", 0.3).stroke("#9BC53D")
-    // create third series
-    chart.area(data3).name('Squirtle').markers(true).fill("#5BC0EB", 0.3).stroke("#5BC0EB")
-
-    // initiate chart drawing
-    chart.draw();
-
-    });
-    </script>
-
-
+  <!-- Dropdown to select one of the pokemon -->
+  <select name="poke1" id="poke1"></select>
+  <!--Dropdown for second pokemon -->
+  <select name="poke2" id="poke2"></select>
+  <!-- Where the chart for the first pokemon will get displayed -->
+  <div style="height: 600px;" id="chart1"></div>
   
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="javascript.js"></script>
-=======
-
-
+  <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-core.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-radar.min.js"></script>
+  <!-- <script src="javascript.js"></script> -->
+  <script src="radar.js"></script>
 </body>
 
 </html>

@@ -46,7 +46,7 @@ function gatherData(){
       }
     }
     // add the data to a list of dictionaries 
-    var data1 = [
+    var data1 = [ 
       {x: "HP", value: hp1},
       {x: "Attack", value: attack1},
       {x: "Defense", value: defense1},
@@ -69,24 +69,42 @@ function gatherData(){
       var chart = anychart.radar();
     
       // set chart title
-      chart.title("Starter Pokemon Comparison Chart");
+      chart.title("Your Pokemon Matchup!");
     
       // set chart yScale settings
       chart.yScale()
       .minimum(0)
       .maximum(200)
-      .ticks({'interval':15});
+      .ticks({'interval':20});
     
       // create second series
-      var series1 = chart.area(data1);
-      var series2 = chart.area(data2);
-    
+      var Pokemon1 = chart.area(data1);
+      var Pokemon2 = chart.area(data2);
+
       // set container id for the chart
       chart.container('chart1');
-      chart.yGrid().palette(["gray 0.5", "gray 0.2"]);
+      chart.yGrid().palette(["gray 0.15", "gray 0.05"]);
+      // configure the stroke of the x-grid
+      chart.xGrid().stroke({
+        color: "black",
+        thickness: 0.5,
+        opacity: 0.5
+      });
+
+      // configure the stroke of the circular grid
+      chart.yGrid().stroke({
+        color: "black",
+        thickness: 0.5,
+        opacity: 0.5,
+      });
+      // chart.xGrid().palette(["blue 0.35", "gray 0.1"]);
+      // chart.tooltip.bodyFormat("{%name}: {%x}");
+      // chart.tooltip().titleFormat("{%seriesName}");
+      chart.tooltip().format("{%value}");
     
       // create second series
-      chart.area(data1, data2).markers(true).fill("#9BC53D", 0.3).stroke("#9BC53D");
+      chart.area(data1, data2).markers(false).fill("#FFCB05", 0.5).stroke("#FFCB05");
+      
       // initiate chart drawing
       chart.draw();
   })

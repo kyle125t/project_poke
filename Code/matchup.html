@@ -15,15 +15,16 @@
     html, body, #container {
       width: 100%;
       height: 100%;
-      margin: 0;
-      padding: 0;
+      margin: 10;
+      padding: 5
     }
   </style>
 </head>
 
-<body class = "matchupbody">
+<body>
+<!-- <body class = "matchupbody"> -->
     <!-- NAVBAR CODE (from Bootstrap)--> 
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="index.html">Dashboard Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,12 +47,21 @@
     </div>
   </nav>
 
-  <!-- Dropdown to select one of the pokemon -->
-  <select name="poke1" id="poke1"></select>
-  <!--Dropdown for second pokemon -->
-  <select name="poke2" id="poke2"></select>
+  <div class = "row">
+    <div class = "col-md-6" alignment = "center">
+      <p>Select Pokemon 1 (yellow area in chart):
+       <!-- Dropdown to select one of the pokemon -->
+      <select name="poke1" id="poke1"></select>
+    </div>
+      <div class = "col-md-6" alignment = "center">
+        <p> Select Pokemon 2 (blue area in chart):
+      <!--Dropdown for second pokemon -->
+      <select name="poke2" id="poke2"></select>
+    </div>
+  </div>
+ 
   <!-- Where the chart for the first pokemon will get displayed -->
-  <div style="height: 600px;" id="chart1"></div>
+  <div style="height: 800px;" id="chart1"></div>
   
 
   <script src="https://d3js.org/d3.v4.min.js"></script>

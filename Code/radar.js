@@ -1,6 +1,6 @@
 // function to populate all of the both of the dropdowns with the possible pokemon that can be selected
 function populateDrowdown(){
-  d3.csv("poke_data.csv", function(error,data){
+  d3.csv("clean_data.csv", function(error,data){
     if(error) throw error;
     // go through the length of the document and add the name of each pokemon to the list
     for (var i=1; i<data.length; i++){
@@ -22,8 +22,9 @@ function populateDrowdown(){
 
 // function used to build the actual radar chart
 function buildPlot() {
+  console.log("I am running")
   var name = d3.select("#poke1").property("value");
-  d3.csv("poke_data.csv", function(error,data){
+  d3.csv("clean_data.csv", function(error,data){
     if(error) throw error;
     for (var i=1; i<data.length; i++){
       // check if the name is the name that is selected

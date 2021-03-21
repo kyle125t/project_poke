@@ -9,51 +9,69 @@
   <!-- Boostrap Stylesheet -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="style.css" media="screen"> -->
+  <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-radar.min.js"></script>
+  <style type="text/css">
+    html, body, #container {
+      width: 100%;
+      height: 100%;
+      margin: 10;
+      padding: 5
+    }
+  </style>
 </head>
 
 <body>
+<!-- <body class = "matchupbody"> -->
     <!-- NAVBAR CODE (from Bootstrap)--> 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">PokeMoney</a>
+    <a class="navbar-brand" href="index.html">Dashboard Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Poke Fun!
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="matchup.html">Head to Head Matchup</a>
+            <a class="dropdown-item" href="matchup.html">Head-to-Head Matchup</a>
             <a class="dropdown-item" href="type.html">Type Effectiveness</a>
             <a class="dropdown-item" href="universe.html">Universe Page</a>
           </div>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="">Search</a>
-        </li> -->
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">Dashboard Home</a>
+          </li>
       </ul>
     </div>
   </nav>
 
-    <!-- Dropdown to select one of the pokemon -->
-    <select onchange="buildPlot()" name="poke1" id="poke1">
-      <option selected="selected" value="pikachu">Pikachu</option>
-      <option value="eevee">Eevee</option>
-      <option value="charizard">Charizard</option>
-      <option value="snorlax">Snorlax</option>
-    </select>
+  <div class = "row">
+    <div class = "col-md-6" alignment = "center">
+      <p>Select Pokemon 1 (yellow area in chart):
+       <!-- Dropdown to select one of the pokemon -->
+      <select name="poke1" id="poke1"></select>
+    </div>
+      <div class = "col-md-6" alignment = "center">
+        <p> Select Pokemon 2 (blue area in chart):
+      <!--Dropdown for second pokemon -->
+      <select name="poke2" id="poke2"></select>
+    </div>
+  </div>
+ 
+  <!-- Where the chart for the first pokemon will get displayed -->
+  <div style="height: 800px;" id="chart1"></div>
+  
 
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-core.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-radar.min.js"></script>
   <!-- <script src="javascript.js"></script> -->
   <script src="radar.js"></script>
-  
-
-
-
 </body>
 
 </html>

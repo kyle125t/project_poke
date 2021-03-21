@@ -1,80 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>PokeMon3y$$$</title>
-  <!-- Boostrap Stylesheet -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PokeMon3y$$$</title>
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" media="screen">
+  </head>
+  
 
 <body>
-    <!-- NAVBAR CODE (from Bootstrap)--> 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">PokeMoney</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Poke Fun!
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="matchup.html">Head to Head Matchup</a>
-            <a class="dropdown-item" href="type.html">Type Effectiveness</a>
-            <a class="dropdown-item" href="universe.html">Universe Page</a>
-          </div>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="">Search</a>
+  <nav class="navbar navbar-dark bg-dark">
+  <!-- NAVBAR CODE (from Bootstrap)--> 
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+  <a class="navbar-brand" href="index.html">Dashboard Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Poke Fun!
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="matchup.html">Head-to-Head Matchup</a>
+          <a class="dropdown-item" href="type.html">Type Effectiveness</a>
+          <a class="dropdown-item" href="universe.html">Universe Page</a>
+        </div>
+      <!-- </li>
+      <li class="nav-item">
+          <a class="nav-link" href="index.html">Dashboard Home</a>
         </li> -->
-      </ul>
-    </div>
-  </nav>
+    </ul>
+  </div>
+</nav>
+
+<div class="p-3 mb-2 bg-secondary text-dark">
 
   <div class="container">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Pokemon Universe Breakdown</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
+      <div class="col-md-12 jumbotron text-center bg-secondary">
+        <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" height="180" alt="" class="center"></center>
+        <br>
+          <h1><a class="text-light">Universe Breakdown</a></h1>
+        <br>
+        <p><a class="text-light">Use the interactive charts below to explore our Pokemon dataset! 
+          <br>As you toggle through each generation, you can see
+          how the Pokemon Universe has evolved through time.
+        </a></p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Choose a generation</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Type Charts</h3>
-          </div>
-          <div id="sample-metadata" class="panel-body"></div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
-    </div>
+
     <div class="row">
       <div class="col-md-12">
-        <div id="bubble"></div>
+        <div class="well">
+        <center> <h5>Choose a Generation</h5> 
+          <select id="selDataset" onchange="optionChanged(this.value)"></select> </center>
+          <br>
+        </div>
       </div>
-    </div>
-  </div>
+      <div class="col-md-12">
+       <center> <div id="pie"></div> </center>
+      </div>
 
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="pokemon">
+          <br>
+         <center><h5>Types of Pokemon by Generation</h5></center>
+         <br>
+         </div>
+         </div>
+      <div class="col-md-12">
+       <center><div id="bubble"></div></center>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div id="pokemon">
+            <br>
+           <center><h5>Type Totals By Generation</h5>
+            <select id="selTypeset" onchange="typeChanged(this.value)"></select> </center>
+            <br>
+          </div>
+        </div>
+            <div class="col-md-12">
+            <center><div id="bar"></div> </center>
+      </div>
+
+
+          
+    <div class="row">
+      <div class="col-md-12">
+        <div id="pokemon">
+          <br>
+         <center><h5><a class="text-secondary">Types of Pokemon by Generation </a></h5></center>
+         <br>
+         </div>
+         </div>
+      <div class="col-md-12">
+       <center><div id="bubble"></div></center>
+      </div>
+ 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="plots.js"></script>
+
 
 
 </body>

@@ -1,9 +1,8 @@
 //Create a function to build the bubble
 
-function bubble_chart(gen){
+function charts(gen){
     //Get the data from the csv
-    d3.csv("poke_data.csv").then(function(data){
-    
+    d3.csv("clean_data.csv").then(function(data){
         //Create arrays for the different types
         var normal = [];
         var water = [];
@@ -200,7 +199,7 @@ function bubble_chart(gen){
     
         };
 
-        //Create the datasets for the bubble chart
+        //Create the datasets for the charts
         var x_values = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800];
         var y_values = [
             normal.length,
@@ -232,8 +231,23 @@ function bubble_chart(gen){
             pokemon += y_values[i]
         }
         console.log(pokemon)
+
+        //Create and plot the bar chart
+        var pie_values =[{
+            values: y_values,
+            labels: labels,
+            type: "pie",
+        }];
+
+        var pie_layout = {
+            title : "Number of Pokemon Per Type"
+        };
+
+        // Plot the bar chart
+        Plotly.newPlot("pie", pie_values, pie_layout);
+
         
-        // Create the chart data
+        // Create the bubble chart data
         var bubble_values = [
             {
                 x: labels,
@@ -262,6 +276,77 @@ function bubble_chart(gen){
     });
 };
 
+// Bar chart for type counts by generation
+function type_bar(type){
+    //Get the data from the csv
+    d3.csv("clean_data.csv").then(function(data){
+
+        //Create the array to hold the pokemon
+        var filtered_poke = [];
+
+        //Loop through the data and append the types to the array
+        for (i=0; i<data.length; i++){
+            //Push the matching types to the array
+            if (data[i].Type1 == type){
+                filtered_poke.push(data[i]);
+            };
+
+            if (data[i].Type2 == type){
+                filtered_poke.push(data[i]);
+            }
+        };
+
+        console.log(filtered_poke);
+
+        //Create the arrays for the bar chart
+        var gen1 = [];
+        var gen2 = [];
+        var gen3 = [];
+        var gen4 = [];
+        var gen5 = [];
+        var gen6 = [];
+
+        //Iterate through the type array and append to the generation
+        for(i = 0; i<filtered_poke.length; i++){
+            if (filtered_poke[i].Generation == "1"){
+                gen1.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "2"){
+                gen2.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "2"){
+                gen2.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "3"){
+                gen3.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "4"){
+                gen4.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "5"){
+                gen5.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "6"){
+                gen6.push(filtered_poke[i]);
+            }
+        }
+
+        //Build the chart data
+        y_values = [gen1.length, gen2.length,gen3.length,gen4.length,gen5.length,gen6.length,];
+        labels = ["Gen 1", "Gen 2", "Gen 3", "Gen 4", "Gen 5", "Gen 6"];
+
+        var bar_data = [
+            {
+                y: y_values,
+                x: labels,
+                text: labels,
+                type: "bar",
+            }
+        ];
+
+        var bar_layout = {
+            title : "Type Counts: " + type,
+            margin: { t:30, l: 150}
+        };
+
+        Plotly.newPlot("bar", bar_data,bar_layout);
+    });
+}
+
 //Create an init function 
 function init(){
     //Create the array of selections
@@ -278,15 +363,33 @@ function init(){
             .property("value", choice);
     });
 
+    //Create the array of the selections
+    var types = ["Normal", "Water", "Electric", "Fighting", "Ground", "Psychic", "Rock",
+    "Dark", "Steel", "Fire", "Grass", "Ice", "Poison", "Flying", "Bug", "Ghost", "Dragon", "Fairy"];
+
+    var type_sel = d3.select("#selTypeset");
+    types.forEach((choice)=>{
+        type_sel
+            .append("option")
+            .text(choice)
+            .property("value", choice);
+    });
+
     //Build the first plots for all generation
-    bubble_chart(choices[0]);
+    charts(choices[0]);
+    type_bar(types[0]);
 
 }
 
 //Creat an option changed function
 function optionChanged(newChoice){
     //Create the new charts
-    bubble_chart(newChoice);
+    charts(newChoice);
+}
+
+//Create a type changed function
+function typeChanged(newChoice){
+    type_bar(newChoice);
 }
 
 //Initalize the dashboard

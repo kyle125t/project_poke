@@ -24,41 +24,61 @@
 <body>
 <!-- <body class = "matchupbody"> -->
     <!-- NAVBAR CODE (from Bootstrap)--> 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">Dashboard Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Poke Fun!
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="matchup.html">Head-to-Head Matchup</a>
-            <a class="dropdown-item" href="type.html">Type Effectiveness</a>
-            <a class="dropdown-item" href="universe.html">Universe Page</a>
+    <nav class="navbar navbar-dark bg-dark">
+      <!-- NAVBAR CODE (from Bootstrap)--> 
+      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+      <a class="navbar-brand" href="index.html">Dashboard Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Poke Fun!
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="matchup.html">Head-to-Head Matchup</a>
+              <a class="dropdown-item" href="type.html">Type Effectiveness</a>
+              <a class="dropdown-item" href="universe.html">Universe Page</a>
+            </div>
+          <!-- </li>
+          <li class="nav-item">
+              <a class="nav-link" href="index.html">Dashboard Home</a>
+            </li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <div class="p-3 mb-2 bg-secondary text-dark">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 jumbotron text-center bg-secondary">
+            <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" height="180" alt="" class="center"></center>
+            <br>
+              <h1><a class="text-light">Radar Comparison Chart</a></h1>
+            <br>
+            <p><a class="text-light">Use the interactive searches below to compare Pokemons to one another!
+            </a></p>
           </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">Dashboard Home</a>
-          </li>
-      </ul>
-    </div>
-  </nav>
+        </div>
 
   <div class = "row">
     <div class = "col-md-6" alignment = "center">
-      <p>Select Pokemon 1 (yellow area in chart):
+      <p class = "text-warning" >Select Pokemon 1 (yellow area in chart):
        <!-- Dropdown to select one of the pokemon -->
-      <select name="poke1" id="poke1"></select>
+    <select name="poke1" id="poke1"></select>
+    </p>
     </div>
       <div class = "col-md-6" alignment = "center">
-        <p> Select Pokemon 2 (blue area in chart):
-      <!--Dropdown for second pokemon -->
+        <p class = "text-warning"> Select Pokemon 2 (blue area in chart):
+<!--Dropdown for second pokemon -->
       <select name="poke2" id="poke2"></select>
+      </p>
     </div>
   </div>
+
+  <br>
  
   <!-- Where the chart for the first pokemon will get displayed -->
   <div style="height: 800px;" id="chart1"></div>

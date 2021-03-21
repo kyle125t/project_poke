@@ -40,12 +40,28 @@
   </div>
   </nav>
 
-  <div class="container">
+
+  <div class="p-3 mb-2 bg-secondary text-dark">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 jumbotron text-center bg-secondary">
+          <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" height="180" alt="" class="center"></center>
+          <br>
+            <h1><a class="text-light">Types of Pokemon Comparison</a></h1>
+          <br>
+          <p><a class="text-light">You can dig into our dataset using the search bar! 
+          </a></p>
+        </div>
+      </div>
+  
+
+  <!-- <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
         <h1>Pokemon Types Comparison</h1>
       </div>
-    </div>
+    </div> -->
     <div class="row">
       <div class="col-md-12">
         <!-- <div class="well">
@@ -60,12 +76,13 @@
                     <!-- app search page-->
             <div data-role="page" id="pokeSearch-page">
                 <div data-role="header" data-theme="b" style="text-align:center">
-                    <h1>Pokemon Type Effectiveness Search</h1>
+                    <h2 class="text-warning" >Pokemon Type Effectiveness Search</h2>
+                    <br>
                 </div>
                 <div data-role="main" class="ui-content" style="text-align:center">
                 <form id="pokeForm" action="#pokeDetails-page" method="post">
                     <div>
-                    <label for="pokeInput" style="text-align:center">Pokemon name (upper- or lower-case) or Pokedex number:
+                    <label class="text-warning" for="pokeInput" style="text-align:center">Pokemon name (upper- or lower-case) or Pokedex number:
                     <input type="text" style="text-align:center" name="pokeInput" id="pokeInput" placeholder="Name/Number" value="">
                     </div>
                     <br>

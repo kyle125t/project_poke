@@ -3,6 +3,13 @@ function pokeSubmit(){
     var pokeURL = "http://pokeapi.co/api/v2/pokemon/" + param.toLowerCase();
     var jsonType1;
     var jsonType2;
+                
+    var dF = [];
+    var dT = [];
+    var hF = [];
+    var hT = [];
+    var nF = [];
+    var nT = [];
 
     $.getJSON(pokeURL, function(data){
         var pokeID = data.id;
@@ -28,26 +35,13 @@ function pokeSubmit(){
             // console.log(halfTo);
             // console.log(noFrom);
             // console.log(noTo);
-            
-            var dF = [];
-            var dT = [];
-            var hF = [];
-            var hT = [];
-            var nF = [];
-            var nT = [];
-            
-            var halfWeak
-            var doubleWeak
-            var halfStrong
-            var doubleStrong
-
-            // console.log(doubleFrom);
 
             doubleFrom.forEach(function(data){
                 var x = data.name;
                 dF.push(x);
+                return dF; 
             })
-            // console.log(dF);
+            console.log(dF[0]);
             doubleTo.forEach(function(data){
                 var x = data.name;
                 dT.push(x);
@@ -77,8 +71,6 @@ function pokeSubmit(){
         console.log("Type 1: ", pokeType1);
         console.log("Type 2: ", pokeType2);
         console.log("Image URI: ", imageURI);
-        // console.log("Double From: ", doubleF);
-
         var li = "";
             li += '<li><img src="' + imageURI + '">';
             li += '<h1>#' + pokeID + ' ' + pokeName.toUpperCase() + '</h1>';
@@ -88,8 +80,11 @@ function pokeSubmit(){
             if (pokeType2 != null){
                 li += '<p>Type 2: ' + pokeType2.toUpperCase() + '</p>';
             }
-
-            // empty the listview
+            // li += "<p>Takes double damage from " + console.log(dF) + "</p>";
+            
+            li += '<p>Double from: ' + dF[0] + '</p>';
+            
+            // empty listview
             $("#pokeDetails").empty();
 
             // append new li to listview

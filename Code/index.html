@@ -55,15 +55,27 @@
          </p></center>
          <center><img src="https://static2.srcdn.com/wordpress/wp-content/uploads/2021/01/Pokemon-How-Many.jpg" height="180" alt="" class="center">
             <div class="content"></center>
+              <div id="pokemon">
+                <br>
+              <center><h5>Who's That Pokemon!?</h5></center>
+                <br>
+                <center><select id="selTypeset" onchange="typeChanged(this.value)"></select> </center>
+                <br>
+                <center><p data-role="listview" data-inset="true" id="pokeDetails"></p> </center>
+                <br> 
+                <center><p class = "text-warning">Warning!!!</p></center>
+              </div>
          </div>
         </div>
+
       </section>
 
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="javascript.js"></script>
+  <script src="rand_poke.js"></script>
 
 
 </body>

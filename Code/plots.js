@@ -276,25 +276,74 @@ function charts(gen){
     });
 };
 
-//Random Pokemon sprite per generation
-function rand_poke(type){
-    
-    //Write the url based on the type
-    l_type = type.toLowerCase();
-    var url = `https://pokeapi.co/api/v2/type/${l_type}`;
+// Bar chart for type counts by generation
+function type_bar(type){
+    //Get the data from the csv
+    d3.csv("clean_data.csv").then(function(data){
 
-    //Query the api
-    d3.json(url).then(function(data){
-        
-        //Store the array of pokemon
-        type_pokemon = data.pokemon;
+        //Create the array to hold the pokemon
+        var filtered_poke = [];
 
-        //Create a random number based on the length of the type
-        index = Math.round(Math.random()*type_pokemon.length);
-        
-        //Store the random pokemon to be queried
-        winner = type_pokemon[index];
-        console.log(winner);
+        //Loop through the data and append the types to the array
+        for (i=0; i<data.length; i++){
+            //Push the matching types to the array
+            if (data[i].Type1 == type){
+                filtered_poke.push(data[i]);
+            };
+
+            if (data[i].Type2 == type){
+                filtered_poke.push(data[i]);
+            }
+        };
+
+        console.log(filtered_poke);
+
+        //Create the arrays for the bar chart
+        var gen1 = [];
+        var gen2 = [];
+        var gen3 = [];
+        var gen4 = [];
+        var gen5 = [];
+        var gen6 = [];
+
+        //Iterate through the type array and append to the generation
+        for(i = 0; i<filtered_poke.length; i++){
+            if (filtered_poke[i].Generation == "1"){
+                gen1.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "2"){
+                gen2.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "2"){
+                gen2.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "3"){
+                gen3.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "4"){
+                gen4.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "5"){
+                gen5.push(filtered_poke[i]);
+            } else if (filtered_poke[i].Generation == "6"){
+                gen6.push(filtered_poke[i]);
+            }
+        }
+
+        //Build the chart data
+        y_values = [gen1.length, gen2.length,gen3.length,gen4.length,gen5.length,gen6.length,];
+        labels = ["Gen 1", "Gen 2", "Gen 3", "Gen 4", "Gen 5", "Gen 6"];
+
+        var bar_data = [
+            {
+                y: y_values,
+                x: labels,
+                text: labels,
+                type: "bar",
+            }
+        ];
+
+        var bar_layout = {
+            title : "Type Counts: " + type,
+            margin: { t:30, l: 150}
+        };
+
+        Plotly.newPlot("bar", bar_data,bar_layout);
     });
 }
 
@@ -316,7 +365,7 @@ function init(){
 
     //Create the array of the selections
     var types = ["Normal", "Water", "Electric", "Fighting", "Ground", "Psychic", "Rock",
-    "Dark", "Steel", "Fire", "Grass", "Ice", "Poison", "Fly", "Bug", "Ghost", "Dragon", "Fairy"];
+    "Dark", "Steel", "Fire", "Grass", "Ice", "Poison", "Flying", "Bug", "Ghost", "Dragon", "Fairy"];
 
     var type_sel = d3.select("#selTypeset");
     types.forEach((choice)=>{
@@ -328,6 +377,7 @@ function init(){
 
     //Build the first plots for all generation
     charts(choices[0]);
+    type_bar(types[0]);
 
 }
 
@@ -337,7 +387,10 @@ function optionChanged(newChoice){
     charts(newChoice);
 }
 
+//Create a type changed function
+function typeChanged(newChoice){
+    type_bar(newChoice);
+}
+
 //Initalize the dashboard
 init();
-
-rand_poke("normal");

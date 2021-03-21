@@ -138,11 +138,20 @@ function pokeSubmit(){
                 if (pokeType2 != null){
                     li += '<p>Type 2: ' + pokeType2.toUpperCase() + '</p>';
                 }
-                li += "<p>Takes double damage from: " + dF_final + "</p>";
+                li += "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+                li += "<br>";
+                li += "<b>Takes double damage from: " + dF_final + "</b>";
+                li += "<br>";
+                li += "<br>";
                 li += "<p>Deals double damage to: " + dT_final + "</p>";
+                li += "<br>";
                 li += "<p>Takes half damage from: " + hF_final + "</p>";
+                li += "<br>";
                 li += "<p>Deals half damage to: " + hT_final + "</p>";
+                li += "<br>";
                 li += "<p>Takes no damage from: " + nF_final + "</p>";
+                li += "<br>";
+
                 li += "<p>Deals no damage to: " + nT_final + "</p>";
                 
                 // empty listview

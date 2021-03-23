@@ -129,7 +129,7 @@ function pokeSubmit(){
             var nT_final = nT.concat(nT2);
 
 
-            var li = "";
+            var li = ""; 
                 li += '<li><img src="' + imageURI + '">';
                 li += '<h1>#' + pokeID + ' ' + pokeName.toUpperCase() + '</h1>';
                 li += '<p>Type 1: ' + pokeType1.toUpperCase() + '</p>';

@@ -1,7 +1,7 @@
 function pokeSubmit(){
 
     var param = document.getElementById("pokeInput").value;
-    var pokeURL = "http://pokeapi.co/api/v2/pokemon/" + param.toLowerCase();
+    var pokeURL = "https://pokeapi.co/api/v2/pokemon/" + param.toLowerCase();
     var jsonType1;
     var jsonType2;
                 
